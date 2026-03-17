@@ -1,5 +1,9 @@
 from fastapi import FastAPI
 from src.routes import items
+from src.database import engine, Base
+import src.models
+
+Base.metadata.create_all(bind=engine)
 
 app = FastAPI(title="Zelus API")
 

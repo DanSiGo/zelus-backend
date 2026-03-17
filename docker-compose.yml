@@ -1,0 +1,10 @@
+services:
+  api:
+    build: .
+    container_name: zelus-backend-api
+    ports:
+      - "8000:8000"
+    env_file:
+      - .env
+    volumes:
+      - ./src:/app/src
