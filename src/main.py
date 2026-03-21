@@ -1,7 +1,6 @@
 from fastapi import FastAPI
-from src.routes import items
+from src.routes import items, report, user
 from src.database import engine, Base
-from src.models import user, report, comment # Importa para o SQLAlchemy "enxergar" as tabelas
 
 app = FastAPI(title="Zelus API")
 
@@ -17,6 +16,9 @@ except Exception as e:
 
 
 app.include_router(items.router)
+app.include_router(report.router)
+app.include_router(user.router)
+
 
 @app.get("/")
 def home():
