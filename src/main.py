@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 # 1. Adicionamos 'auth' aqui na lista de importação
-from src.routes import auth, items, report, user 
+from src.routes import auth, report, user 
 from src.database import engine, Base
 
 app = FastAPI(title="Zelus API")
@@ -15,7 +15,6 @@ except Exception as e:
 
 # 2. Registramos as rotas. A de auth (login) é bom ficar em primeiro!
 app.include_router(auth.router)
-app.include_router(items.router)
 app.include_router(report.router)
 app.include_router(user.router)
 
