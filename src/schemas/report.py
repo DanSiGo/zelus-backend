@@ -16,7 +16,7 @@ class ReportCreate(ReportBase):
     pass
 
 # 3. O que a API devolve (Response) - ESSA PARTE É A QUE ESTÁ FALTANDO!
-class ReportOut(ReportBase):
+class ReportResponse(ReportBase):
     id: int
     status: str = "Aberto"
     user_id: int

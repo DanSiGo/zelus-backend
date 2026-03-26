@@ -16,5 +16,6 @@ def login(form_data: OAuth2PasswordRequestForm = Depends(), db: Session = Depend
         raise HTTPException(status_code=401, detail="E-mail ou senha incorretos")
 
     # 3. Se deu certo, dá o crachá (Token)
-    token = auth_utils.create_access_token(data={"sub": user.email})
+    ### alteração: de busca por e-mail para busca por id, é mais eficiente
+    token = auth_utils.create_access_token(data={"sub": str(user.id)})
     return {"access_token": token, "token_type": "bearer"}
