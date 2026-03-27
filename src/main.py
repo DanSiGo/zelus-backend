@@ -3,7 +3,26 @@ from fastapi import FastAPI
 from src.routes import auth, report, user 
 from src.database import engine, Base
 
-app = FastAPI(title="Zelus API")
+# --- INÍCIO DA MUDANÇA (ISSUE #5) ---
+app = FastAPI(
+    title="Zelus API 🏙️",
+    description="""
+**API oficial do aplicativo Zelus para zeladoria urbana.**
+
+Aqui você pode interagir com o sistema para:
+* 🔐 **Autenticação:** Fazer login e gerar tokens de segurança.
+* 👤 **Usuários:** Criar contas e gerenciar acessos.
+* 📝 **Denúncias:** Relatar problemas na cidade (buracos, postes quebrados, lixo, etc).
+
+_Projeto desenvolvido pela equipe Unifor._
+    """,
+    version="1.0.0",
+    contact={
+        "name": "Equipe Zelus - Unifor",
+        "url": "https://github.com/UniforGroupProjects/zelus-backend",
+    }
+)
+# --- FIM DA MUDANÇA ---
 
 print("--- Verificando Banco de Dados ---", flush=True)
 try:
