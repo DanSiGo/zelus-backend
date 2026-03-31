@@ -20,8 +20,6 @@ class UserLogin(BaseModel):
     email: EmailStr
     password: str
 
-# No arquivo src/schemas/user.py
 class UserUpdate(BaseModel):
     full_name: Optional[str] = None
     email: Optional[EmailStr] = None
-    # Não permitimos mudar a senha por aqui normalmente (tem rota própria)

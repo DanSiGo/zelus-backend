@@ -9,14 +9,14 @@ class Report(Base):
     id = Column(Integer, primary_key=True, index=True)
     title = Column(String(100), nullable=False)
     description = Column(String(500), nullable=False)
-    category = Column(String(50))  # Ex: "Buraco", "Poste Caído", "Vazamento"
+    category = Column(String(50))
     
     # Coordenadas para o mapa
     latitude = Column(Float, nullable=False)
     longitude = Column(Float, nullable=False)
     
-    image_url = Column(String(255), nullable=True) # Link da foto no Supabase/S3
-    status = Column(String(20), default="aberto")  # aberto, em_analise, resolvido
+    image_url = Column(String(255), nullable=True)
+    status = Column(String(20), default="aberto")
     
     created_at = Column(DateTime, default=datetime.utcnow)
 

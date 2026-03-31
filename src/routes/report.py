@@ -1,13 +1,9 @@
 from fastapi import APIRouter, Depends, HTTPException, status
 from sqlalchemy.orm import Session
 from typing import List
-
-# Importações de conexão e lógica
 from src.database import get_db
 from src.schemas.report import ReportCreate, ReportResponse, ReportUpdate
 from src.services import report as report_service
-
-# Importação da segurança (que está na raiz)
 from src.auth_utils import get_current_user_id 
 
 router = APIRouter(prefix="/reports", tags=["Reports"])
@@ -16,7 +12,7 @@ router = APIRouter(prefix="/reports", tags=["Reports"])
 def create_new_report(
     report_data: ReportCreate, 
     db: Session = Depends(get_db),
-    current_user_id: int = Depends(get_current_user_id) # Extrai o ID do Token
+    current_user_id: int = Depends(get_current_user_id)
 ):
     """
     Cria uma nova denúncia. 
